@@ -1,0 +1,1745 @@
+{
+	"variables": [],
+	"info": {
+		"name": "ODATA_V4",
+		"_postman_id": "335730a6-25f5-e48f-eb18-5cee9f8d03e4",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "01. Queries",
+			"description": "",
+			"item": [
+				{
+					"name": "QUERY ( $select ): People(i)?$select=FirstName,Email",
+					"request": {
+						"url": "http://localhost:64951/odata/People(1)?$select=FirstName,Email",
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "QUERY ( $expand ): People(i)?$expand=VinylRecords,Friends",
+					"request": {
+						"url": "http://localhost:64951/odata/People(1)?$expand=VinylRecords($expandPressingDetail),Friends",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json;odata.metadata=minimal",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "QUERY PROP COLLECTION ( $select ): People(i)/VinylRecords?$select=Title",
+					"request": {
+						"url": "http://localhost:64951/odata/People(1)/VinylRecords?$select=Title",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json;odata.metadata=full",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "QUERY PROP COLLECTION ( $select ): People(i)/Friends?$select=FirstName",
+					"request": {
+						"url": "http://localhost:64951/odata/People(1)/Friends?$select=FirstName",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json;odata.metadata=full",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "QUERY ( $expand ): People(i)?$expand=VinylRecords,Friends copy",
+					"request": {
+						"url": "http://localhost:64951/odata/People(1)?$expand=VinylRecords,Friends",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json;odata.metadata=minimal",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "QUERY ( $expand ): People(i)?$expand=VinylRecords,Friends($expand=VinylRecords)",
+					"request": {
+						"url": "http://localhost:64951/odata/People(1)?$expand=VinylRecords,Friends($expand=VinylRecords, Friends($expand=VinylRecords,Friends))",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json;odata.metadata=minimal",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "QUERY ( and '&' ): People(i)?$select=LastName&$expand=VinylRecords,Friends copy",
+					"request": {
+						"url": "http://localhost:64951/odata/People(1)?$select=FirstName,LastName&$expand=VinylRecords,Friends($select=LastName)",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json;odata.metadata=minimal",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "QUERY ( and ';' ): People(i)?$select=FirstName,LastName&$expand=VinylRecords($select=Title),Friends($select=LastName;$expand=VinylRecords)",
+					"request": {
+						"url": "http://localhost:64951/odata/People(1)?$select=FirstName,LastName&$expand=VinylRecords($select=Title),Friends($select=LastName;$expand=VinylRecords)",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json;odata.metadata=minimal",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "QUERY ( $orderby ): People?&orderby=Gender desc, Email",
+					"request": {
+						"url": "http://localhost:64951/odata/People?$orderby=Gender desc, Email desc&$select=LastName,Email,Gender&$expand=VinylRecords($select=Title;$orderby=Title asc)",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json;odata.metadata=minimal",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "02. Paging",
+			"description": "",
+			"item": [
+				{
+					"name": "PAGING ( $top, $skip ): People?$top=2&$skip=2",
+					"request": {
+						"url": "http://localhost:64951/odata/People?$top=2&$skip=2",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json;odata.metadata=minimal",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "PAGING NEXT ( $skip ): People?$skip=4",
+					"request": {
+						"url": "http://localhost:64951/odata/People?$skip=4&$count=true",
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "03. Filters",
+			"description": "",
+			"item": [
+				{
+					"name": "FILTERS ( == / 'eq' ): People?$filter=FirstName eq 'Kevin' ",
+					"request": {
+						"url": "http://localhost:64951/odata/People?$filter=FirstName eq 'Kevin'",
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "FILTERS ( > / 'gt' ): People?$filter=PersonId gt 3",
+					"request": {
+						"url": "http://localhost:64951/odata/People?$filter=PersonId gt 3",
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "FILTERS ( < / 'lt' ): People?$filter=PersonId lt 3",
+					"request": {
+						"url": "http://localhost:64951/odata/People?$filter=PersonId lt 3",
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "FILTERS ( >= / 'ge' ): People?$filter=DateOfBirth ge 1981-05-05T00:00:00Z",
+					"request": {
+						"url": "http://localhost:64951/odata/People?$filter=DateOfBirth ge 1981-05-05T00:00:00Z",
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "FILTERS ( <= / 'le' ): People?$filter=DateOfBirth le 1981-05-05T00:00:00Z",
+					"request": {
+						"url": "http://localhost:64951/odata/People?$filter=DateOfBirth le 1981-05-05T00:00:00Z",
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "FILTERS ( & \\ 'and' ):People?$filter=PersonId lt 3 and FirstName eq 'Kevin'",
+					"request": {
+						"url": "http://localhost:64951/odata/People?$filter=PersonId lt 3 and FirstName eq 'Kevin'",
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "FILTERS ( || \\ 'or' ):People?$filter=PersonId lt 3 or FirstName eq 'Kevin'",
+					"request": {
+						"url": "http://localhost:64951/odata/People?$filter=PersonId lt 3 or FirstName eq 'Kevin'",
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "FILTERS on Date: People?$filter=DateOfBirth le 1981-05-05T00:00:00Z",
+					"request": {
+						"url": "http://localhost:64951/odata/People?$filter=DateOfBirth le 1981-05-05T00:00:00Z",
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "FILTERS on Enum: People?$filter=Gender eq AirVinyl.Model.Gender.Female",
+					"request": {
+						"url": "http://localhost:64951/odata/People?$filter=Gender eq AirVinyl.Model.Gender'Female'",
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "FILTERS in $expand: People?$expand=VinylRecords($filter=Year ge 2000)",
+					"request": {
+						"url": "http://localhost:64951/odata/People?$expand=VinylRecords($filter=Year ge 2000)",
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "FILTERS in NULL: People?$expand=VinylRecords($filter=Year eq null)",
+					"request": {
+						"url": "http://localhost:64951/odata/People?$expand=VinylRecords($filter=Year eq null)",
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "FILTERS with '/': People?$expand=VinylRecords($filter=PressingDetail/Grams ge 100) ",
+					"request": {
+						"url": "http://localhost:64951/odata/People?$expand=VinylRecords($filter=Year eq null)",
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "FILTERS $it: People?$expand=VinylRecords($filter=year($it/DateOfBirth) lt Year)",
+					"request": {
+						"url": "http://localhost:64951/odata/People?$expand=VinylRecords($filter=year($it/DateOfBirth) lt Year)",
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "03.1 Lambda",
+			"description": "",
+			"item": [
+				{
+					"name": "FILTERS with '/any ( r:r/... )': People?$filter=VinylRecords/any(vr:vr/Artist eq 'Arctic Monkeys')&$expand=VinylRecords",
+					"request": {
+						"url": "http://localhost:64951/odata/People?$filter=VinylRecords/any(vr:vr/Artist eq 'Arctic Monkeys')&$expand=VinylRecords",
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "FILTERS with '/all ( r:r/... )': People?$filter=VinylRecords/all(vr:vr/Artist eq 'Arctic Monkeys')&$expand=VinylRecords",
+					"request": {
+						"url": "http://localhost:64951/odata/People?$filter=VinylRecords/all(vr:vr/Artist eq 'Arctic Monkeys')&$expand=VinylRecords",
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "FILTERS with '/any ( r:r/.../... )': People?$filter=VinylRecords/any(vr:vr/PressingDetail/Grams gt 100)&$expand=VinylRecords($expand=PressingDetail)",
+					"request": {
+						"url": "http://localhost:64951/odata/People?$filter=VinylRecords/any(vr:vr/PressingDetail/Grams gt 100)&$expand=VinylRecords($expand=PressingDetail)",
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "03.2 Math Operators",
+			"description": "",
+			"item": [
+				{
+					"name": "FILTERS + 'add': People?$filter=NumberOfRecordsOnWishList add 10 eq 20",
+					"request": {
+						"url": "http://localhost:64951/odata/People?$filter=NumberOfRecordsOnWishList add 10 eq 20",
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "FILTERS / 'div': People?$filter=AmountOfCashToSpend div NumberOfRecordsOnWishList  gt 10",
+					"request": {
+						"url": "http://localhost:64951/odata/People?$filter=AmountOfCashToSpend div NumberOfRecordsOnWishList gt 10",
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "03.3 Canonical Functions",
+			"description": "",
+			"item": [
+				{
+					"name": "FILTERS '()' grouping: People?$filter=(AmountOfCashToSpend add 1500) div 3 gt 600",
+					"request": {
+						"url": "http://localhost:64951/odata/People?$filter=(AmountOfCashToSpend add 1500) div 3 gt 600",
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "FILTERS startswith(..., 'n') starts with 'n':People?$filter=startswith(FirstName, 'k')",
+					"request": {
+						"url": "http://localhost:64951/odata/People?$filter=startswith(FirstName, 'k')",
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "FILTERS endswitch(..., 'n') ends with 'n': People?$filter=endswith(FirstName, 'n')",
+					"request": {
+						"url": "http://localhost:64951/odata/People?$filter=endswith(FirstName, 'n')",
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "FILTERS length(...,) fn: People?$filter=length(Email) eq 26",
+					"request": {
+						"url": "http://localhost:64951/odata/People?$filter=endswith(FirstName, 'a')",
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "FILTERS year(...,) fn: People?$filter=year(DateOfBirth) eq 1981",
+					"request": {
+						"url": "http://localhost:64951/odata/People?$filter=year(DateOfBirth) eq 1981",
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "FILTERS combined functions: People?$filter=length(Email) eq 26 and endswith(FirstName, 'n')",
+					"request": {
+						"url": "http://localhost:64951/odata/People?$filter=endswith(FirstName, 'n')",
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Filters $it as call to itself: RecordStores(1)/Tags?$filter=startswith($it, 'R')",
+					"request": {
+						"url": "http://localhost:64951/odata/RecordStores(1)/Tags?$filter=startswith($it, 'R')",
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "04 Custom Functions",
+			"description": "",
+			"item": [
+				{
+					"name": "BOUND FN RETURNS BOOL: RecordStores(1)/AirVinyl.Functions.IsHighRatedFn(minimumRating=1)",
+					"request": {
+						"url": "http://localhost:64951/odata/RecordStores(1)/AirVinyl.Functions.IsHighRatedFn(minimumRating=1)",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "BOUND FN RETURNS COLLECTION: RecordStores/AirVinyl.Functions.AreRatedByFn(personIds=[1])",
+					"request": {
+						"url": "http://localhost:64951/odata/RecordStores/AirVinyl.Functions.AreRatedByFn(personIds=[7])",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "UNBOUND FN RETURNS COLLECTION: GetHighRatedRecordStoresFn(minimumRating=3)",
+					"request": {
+						"url": "http://localhost:64951/odata/GetHighRatedRecordStoresFn(minimumRating=3)",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "05 Custom Actions",
+			"description": "",
+			"item": [
+				{
+					"name": "BOUND ACTION: RecordStores(1)/AirVinyl.Actions.Rate",
+					"request": {
+						"url": "http://localhost:64951/odata/RecordStores(1)/AirVinyl.Actions.Rate",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"personId\": 4,\n\t\"rating\": 5\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "BOUND ACTION COLLECTION: RecordStores/AirVinyl.Actions.RemoveRatings",
+					"request": {
+						"url": "http://localhost:64951/odata/RecordStores/AirVinyl.Actions.RemoveRatings",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"personId\": 1\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "UNBOUND ACTION COLLECTION: RemoveRecordStoreRatings",
+					"request": {
+						"url": "http://localhost:64951/odata/RemoveRecordStoreRatings",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"personId\": 1\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "06 Singleton",
+			"description": "",
+			"item": [
+				{
+					"name": "SINGLETON GET: GetTim",
+					"request": {
+						"url": "http://localhost:64951/odata/GetTim",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"personId\": 1\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "SINGLETON UPDATE: GetTim",
+					"request": {
+						"url": "http://localhost:64951/odata/GetTim",
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"FirstName\": \"Dupek\"\r\n }"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "SINGLETON GET PROPERTY: GetTim/Email",
+					"request": {
+						"url": "http://localhost:64951/odata/GetTim/Email",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"personId\": 1\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "SINGLETON GET PROPERTY VALUE: GetTim/Email/$value",
+					"request": {
+						"url": "http://localhost:64951/odata/GetTim/Email/$value",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"personId\": 1\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "SINGLETON GET COLLECTION: GetTim/Friends",
+					"request": {
+						"url": "http://localhost:64951/odata/GetTim/Friends",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"personId\": 1\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "07. Derrived Types",
+			"description": "",
+			"item": [
+				{
+					"name": "GET ALL: odata/RecordStores",
+					"request": {
+						"url": "http://localhost:64951/odata/RecordStores",
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "CREATE: odata/RecordStores",
+					"request": {
+						"url": "http://localhost:64951/odata/RecordStores",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"Name\": \"Dupa Dup\"\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "UPDATE: odata/RecordStores(1)",
+					"request": {
+						"url": "http://localhost:64951/odata/RecordStores(1)",
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"Name\": \"Dupa Dup\"\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "DELETE: odata/RecordStores(1)",
+					"request": {
+						"url": "http://localhost:64951/odata/RecordStores(1)",
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "GET ALL DERRIVED: odata/RecordStores/AirVinyl.Model.SpecializedRecordStore",
+					"request": {
+						"url": "http://localhost:64951/odata/RecordStores/AirVinyl.Model.SpecializedRecordStore",
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "CREATE DERRIVED: odata/RecordStores",
+					"request": {
+						"url": "http://localhost:64951/odata/RecordStores",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"@odata.type\": \"#AirVinyl.Model.SpecializedRecordStore\",\n\t\"Name\": \"Dupa Dup\",\n\t\"Specialization\" : \"Pop\"\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "UPDATE DERRIVED: odata/RecordStores(1)",
+					"request": {
+						"url": "http://localhost:64951/odata/RecordStores(1)",
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"@odata.type\": \"#AirVinyl.Model.SpecializedRecordStore\",\n\t\"Name\": \"Dupa Dupka\",\n\t\"Specialization\": \"Metal\"\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "DELETE DERRIVED: odata/RecordStores(1)/AirVinyl.Model.SpecializedRecordStore",
+					"request": {
+						"url": "http://localhost:64951/odata/RecordStores(1)/AirVinyl.Model.SpecializedRecordStore",
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "FILTER DERRIVED: RecordStores(1)?$select=AirVinyl.Model.SpecializedRecordStore/Specialization",
+					"request": {
+						"url": "http://localhost:64951/odata/RecordStores(1)?$select=AirVinyl.Model.SpecializedRecordStore/Specialization",
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "GET SINGLE DERRIVED: odata/RecordStores(1)/AirVinyl.Model.SpecializedRecordStore",
+					"request": {
+						"url": "http://localhost:64951/odata/RecordStores(1)/AirVinyl.Model.SpecializedRecordStore",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "FILTER DERRIVED: RecordStores(1)/AirVinyl.Model.SpecializedRecordStore",
+					"request": {
+						"url": "http://localhost:64951/odata/RecordStores/AirVinyl.Model.SpecializedRecordStore?$filter=Specialization eq 'Indie'",
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "FILTER DERRIVED: RecordStores(1)/AirVinyl.Model.SpecializedRecordStore?$select=Specialization",
+					"request": {
+						"url": "http://localhost:64951/odata/RecordStores(1)/AirVinyl.Model.SpecializedRecordStore?$select=Specialization",
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "08. Open Types (Class Dynamic Properties)",
+			"description": "",
+			"item": [
+				{
+					"name": "CREATE COLLECTION ITEM (DYNAMIC PROPERTY): People(1)/VinylRecords",
+					"request": {
+						"url": "http://localhost:64951/odata/People(1)/VinylRecords",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"Title\": \"Dupa\",\n  \"Artist\": \"Sam Ty\",\n  \"CatalogNumber\": \"ABC/777\",\n  \"Year\": 1981,\n  \"Publisher\": \"Anioł Straż\",\n  \"Producer\":\"Życie\"\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "CREATE COLLECTION ITEM (ADD DYNAMIC PROPERTY): People(i)/VinylRecords(j) ",
+					"request": {
+						"url": "http://localhost:64951/odata/People(1)/VinylRecords(1)",
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"Publisher\": \"Nobody REal\",\n  \"Producer\":\"Reality\"\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "09. Batch (multiple requests)",
+			"description": "",
+			"item": [
+				{
+					"name": "GET ONE REQUEST: $batch",
+					"request": {
+						"url": "http://localhost:64951/odata/$batch",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept-Language",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "multipart/mixed;boundary=batch_a8ba333b-34b7-4699-bdfa-af8d46dbbcbf",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "--batch_a8ba333b-34b7-4699-bdfa-af8d46dbbcbf\nContent-Type: application/http \nContent-Transfer-Encoding:binary\n\nGET http://localhost:5810/odata/People(1)/VinylRecords HTTP/1.1\nAccept: application/json\n\n--batch_a8ba333b-34b7-4699-bdfa-af8d46dbbcbf--"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "GET TWO REQUESTS: $batch",
+					"request": {
+						"url": "http://localhost:64951/odata/$batch",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept-Language",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "multipart/mixed;boundary=batch_a8ba333b-34b7-4699-bdfa-af8d46dbbcbf",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "--batch_a8ba333b-34b7-4699-bdfa-af8d46dbbcbf\nContent-Type: application/http\nContent-Transfer-Encoding:binary\n\nGET http://localhost:5810/odata/People(1)/VinylRecords HTTP/1.1\nAccept: application/json\n\n--batch_a8ba333b-34b7-4699-bdfa-af8d46dbbcbf\nContent-Type: application/http\nContent-Transfer-Encoding:binary\n\nGET http://localhost:5810/odata/People(2)/VinylRecords HTTP/1.1\nAccept: application/json\n\n--batch_a8ba333b-34b7-4699-bdfa-af8d46dbbcbf--"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "UPDATE AND GET REQUESTS: $batch",
+					"request": {
+						"url": "http://localhost:64951/odata/$batch",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept-Language",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "multipart/mixed;boundary=batch_a8ba333b-34b7-4699-bdfa-af8d46dbbcbf",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "--batch_a8ba333b-34b7-4699-bdfa-af8d46dbbcbf\nContent-Type: application/http\nContent-Transfer-Encoding:binary\n\nPOST http://localhost:5810/odata/People(1)/VinylRecords HTTP/1.1\nContent-Type: application/json\nAccept: application/json\n\n{\n\t\"Title\": \"Taaadaaah\",\n\t\"Artist\": \"Mucho Mano\",\n\t\"CatalogNumber\": \"Jot/32\",\n\t\"Year\": 2015\n}\n\n--batch_a8ba333b-34b7-4699-bdfa-af8d46dbbcbf\nContent-Type: application/http\nContent-Transfer-Encoding:binary\n\nPATCH http://localhost:5810/odata/People(1)/VinylRecords(1) HTTP/1.1\nContent-Type: application/json\nAccept: application/json\n\n{\n\t\"Title\": \"Taaadaaah\"\n}\n\n--batch_a8ba333b-34b7-4699-bdfa-af8d46dbbcbf\nContent-Type: application/http\nContent-Transfer-Encoding:binary\n\nGET http://localhost:5810/odata/People(1)/VinylRecords(1) HTTP/1.1\nContent-Type: application/json\nAccept: application/json\n\n--batch_a8ba333b-34b7-4699-bdfa-af8d46dbbcbf--"
+						},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "GET SETUP: $metadata",
+			"request": {
+				"url": "http://localhost:64951/odata/$metadata",
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": []
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "GET SINGLE: People",
+			"request": {
+				"url": "http://localhost:64951/odata/People(1)",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json;odata.metadata=full",
+						"description": ""
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": []
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "GET ALL: People",
+			"request": {
+				"url": "http://localhost:64951/odata/People",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json;odata.metadata=full",
+						"description": ""
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": []
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "GET ALL FULL METADATA: People",
+			"request": {
+				"url": "http://localhost:64951/odata/People",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json;odata.metadata=full",
+						"description": ""
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": []
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "GET COLLECTION: People(i)/VinylRecords",
+			"request": {
+				"url": "http://localhost:64951/odata/People(1)/VinylRecords",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json;odata.metadata=full",
+						"description": ""
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": []
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "GET COLLECTION ITEM: People(i)/VinylRecords(j)",
+			"request": {
+				"url": "http://localhost:64951/odata/People(1)/VinylRecords",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": []
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "CREATE COLLECTION ITEM: People(1)/VinylRecords",
+			"request": {
+				"url": "http://localhost:64951/odata/People(1)/VinylRecords",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"Title\": \"Dupa\",\n  \"Artist\": \"Życie\",\n  \"CatalogNumber\": \"ABC/777\",\n  \"Year\": 1981\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "UPDATE COLLECTION ITEM: People(1)/VinylRecords(18)",
+			"request": {
+				"url": "http://localhost:64951/odata/People(1)/VinylRecords(18)",
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"Title\": \"Dupa Jest OK\"\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "DELETE COLLECTION ITEM: People(1)/VinylRecords(18)",
+			"request": {
+				"url": "http://localhost:64951/odata/People(1)/VinylRecords(18)",
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "GET PROPERTY VALUE: People(7)/FirstName/$value",
+			"request": {
+				"url": "http://localhost:64951/odata/People(7)/FirstName/$value",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json;odata.metadata=full",
+						"description": ""
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": []
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "CREATE: People",
+			"request": {
+				"url": "http://localhost:64951/odata/People",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\t\"@odata.context\": \"http://localhost:64951/odata/$metadata#People/$entity\",\r\n\t\"Email\": \"emma@smith.com\",\r\n\t\"FirstName\": \"Emma\",\r\n\t\"LastName\": \"Smith\",\r\n\t\"DateOfBirth\": \"1981-01-03\",\r\n\t\"Gender\": \"Male\",\r\n\t\"VinylRecords\": [{\r\n\t\t\"Title\": \"Nana\",\r\n\t\t\"Artist\": \"Lady Punk\",\r\n\t\t\"CatalogNumber\": \"PL/114\"\r\n\t}]\r\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "UPDATE FULLY: People",
+			"request": {
+				"url": "http://localhost:64951/odata/People(3)",
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\t\"FirstName\": \"Nick\",\r\n\t\"LastName\": \"Missorten\",\r\n\t\"DateOfBirth\": \"1983-05-18T00:00:00+02:00\",\r\n\t\"Gender\": \"Male\",\r\n\t\"NumberOfRecordsOnWishList\": 23,\r\n\t\"AmountOfCashToSpend\": 2500.00\r\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "UPDATE PARTIAL: People",
+			"request": {
+				"url": "http://localhost:64951/odata/People(3)",
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\t\"FirstName\": \"Nickolson\",\r\n\t\"LastName\": \"Jack\"\r\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "DELETE: People",
+			"request": {
+				"url": "http://localhost:64951/odata/People(3)",
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "SET LINK ASSOCIATION: People(i)/Friends/$ref",
+			"request": {
+				"url": "http://localhost:64951/odata/People(7)/Friends/$ref",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json;odata.metadata=full",
+						"description": ""
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": " {\n \t\"@odata.id\": \"http://localhost:64951/odata/People(1)\"\n }"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "UPDATE LINK ASSOCIATION: People(i)/Friends(i)/$ref",
+			"request": {
+				"url": "http://localhost:64951/odata/People(7)/Friends(1)/$ref",
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json;odata.metadata=full",
+						"description": ""
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": " {\n \t\"@odata.id\": \"http://localhost:64951/odata/People(3)\"\n }"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "DELETE LINK ASSOCIATION: People(i)/Friends/$ref",
+			"request": {
+				"url": "http://localhost:64951/odata/People(7)/Friends/$ref$id=http://localhost:64951/odata/People(3)",
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json;odata.metadata=full",
+						"description": ""
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"description": ""
+			},
+			"response": []
+		}
+	]
+}

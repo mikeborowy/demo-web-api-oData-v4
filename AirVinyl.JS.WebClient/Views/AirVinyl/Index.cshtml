@@ -1,0 +1,123 @@
+﻿
+@{
+    ViewBag.Title = "AirVonyl JavaScript Client";
+}
+<script src="~/scripts/olingo/odatajs-4.0.0.js"></script>
+<script>
+
+    //Get Data START
+    function LoadData() {
+
+        var request = {
+            requestUri: "http://localhost:64951/odata/People?$expand=VinylRecords($filter= Year eq null)",
+            method: "GET",
+            headers: { Accept: "application/json" }
+        };
+
+        odatajs.oData.request(
+            request,
+            function (data, response) {
+
+                var responseData = data.value;
+                var formattedResults = "";
+
+                responseData.forEach(function (entry) {
+                    formattedResults = formattedResults.concat(JSON.stringify(entry));
+                });
+
+                var resultsDiv = document.getElementById("results");
+                resultsDiv.innerHTML = formattedResults;
+            },
+            function (err) {
+                alert("Something went wrong: " + err.Message);
+            }
+        );
+    }
+    //Get Data END
+
+    //Create Data START
+    function CreatePerson() {
+
+        var newPerson = {
+            FirstName: "Maggie",
+            LastName: "Smith"
+        }
+        var request = {
+            requestUri: "http://localhost:64951/odata/People",
+            method: "POST",
+            headers: { Accept: "application/json", "Content-Type": "application/json" },
+            data: newPerson
+        };
+
+        odatajs.oData.request(
+            request,
+            function (data, response) {
+                var responseData = data;
+                var resultsDiv = document.getElementById("results");
+                resultsDiv.innerHTML = responseData;
+            },
+            function (err) {
+                alert("Something went wrong: " + err.Message);
+            }
+        );
+    }
+    //Create Data END
+
+    //Update Data START
+    function UpdatePerson() {
+
+        var changeSetForPatch = {
+            FirstName: "Violet"
+        }
+        var request = {
+            requestUri: "http://localhost:64951/odata/People(8)",
+            method: "PATCH",
+            headers: { Accept: "application/json", "Content-Type": "application/json" },
+            data: changeSetForPatch
+        };
+
+        odatajs.oData.request(
+            request,
+            function (data, response) {
+                // there is no response data, as we should get back a 204 No Content
+                var resultsDiv = document.getElementById("results");
+                resultsDiv.innerHTML = "Update succesful";
+            },
+            function (err) {
+                alert("Something went wrong: " + err.Message);
+            }
+        );
+    }
+    //Update Data END
+
+    //Delete Data START
+    function DeletePerson() {
+
+        var request = {
+            requestUri: "http://localhost:64951/odata/People(8)",
+            method: "DELETE",
+            headers: { Accept: "application/json" }
+        };
+
+        odatajs.oData.request(
+            request,
+            function (data, response) {
+                // there is no response data, as we should get back a 204 No Content
+                var resultsDiv = document.getElementById("results");
+                resultsDiv.innerHTML = "Delete succesful";
+            },
+            function (err) {
+                alert("Something went wrong: " + err.Message);
+            }
+        );
+    }
+    //Delete Data END
+</script>
+<h2>@ViewBag.Title</h2>
+<button onclick="LoadData()">GET</button>
+<button onclick="CreatePerson()">POST</button>
+<button onclick="UpdatePerson()">PATCH</button>
+<button onclick="DeletePerson()">DELETE</button>
+
+<div id="results"></div>
+

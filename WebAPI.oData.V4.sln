@@ -1,0 +1,46 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AirVinyl.API", "AirVinyl.API\AirVinyl.API.csproj", "{2E01F66A-D95D-49DE-9F06-13262A03E7E5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AirVinyl.Model", "AirVinyl.Model\AirVinyl.Model.csproj", "{948C803E-7334-4591-90F2-0AD8F3B1FCB7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AirVinyl.DataAccessLayer", "AirVinyl.DataAccessLayer\AirVinyl.DataAccessLayer.csproj", "{F8B46C2B-6DFA-42AB-8860-96A6457BF85E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AirVinyl.WebClient.MVC", "AirVinyl.WebClient\AirVinyl.WebClient.MVC.csproj", "{390F259C-EA08-4F17-8111-6DD6AD07B1F7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AirVinyl.WebClient.JS", "AirVinyl.JS.WebClient\AirVinyl.WebClient.JS.csproj", "{3F2D26A0-70C1-494A-96CC-87A7D6CF7EBC}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{2E01F66A-D95D-49DE-9F06-13262A03E7E5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2E01F66A-D95D-49DE-9F06-13262A03E7E5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2E01F66A-D95D-49DE-9F06-13262A03E7E5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2E01F66A-D95D-49DE-9F06-13262A03E7E5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{948C803E-7334-4591-90F2-0AD8F3B1FCB7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{948C803E-7334-4591-90F2-0AD8F3B1FCB7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{948C803E-7334-4591-90F2-0AD8F3B1FCB7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{948C803E-7334-4591-90F2-0AD8F3B1FCB7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F8B46C2B-6DFA-42AB-8860-96A6457BF85E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F8B46C2B-6DFA-42AB-8860-96A6457BF85E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F8B46C2B-6DFA-42AB-8860-96A6457BF85E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F8B46C2B-6DFA-42AB-8860-96A6457BF85E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{390F259C-EA08-4F17-8111-6DD6AD07B1F7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{390F259C-EA08-4F17-8111-6DD6AD07B1F7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{390F259C-EA08-4F17-8111-6DD6AD07B1F7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{390F259C-EA08-4F17-8111-6DD6AD07B1F7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3F2D26A0-70C1-494A-96CC-87A7D6CF7EBC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3F2D26A0-70C1-494A-96CC-87A7D6CF7EBC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3F2D26A0-70C1-494A-96CC-87A7D6CF7EBC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3F2D26A0-70C1-494A-96CC-87A7D6CF7EBC}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
